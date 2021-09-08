@@ -1,14 +1,10 @@
-const mongoose = require('mongoose')
 const UrlShort = require('../UrlShort') // 載入 todo model
 
-mongoose.connect('mongodb://localhost/Url_Shortener')
 
 
-const db = mongoose.connection
+const db = require('../../config/mongoose')
 
-db.on('error', () => {
-  console.log('mongodb error!')
-})
+
 db.once('open', () => {
   console.log('mongodb connected!')
 
