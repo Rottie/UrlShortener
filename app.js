@@ -2,6 +2,13 @@
 const express = require('express')
 const app = express()
 
+//Step require hbs tools
+const exphbs = require('express-handlebars');
+
+app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
+app.set('view engine', 'hbs')
+
+
 
 //Step 1 npm mongoose
 
@@ -24,7 +31,7 @@ db.once('open', () => {
 
 // 設定首頁路由
 app.get('/', (req, res) => {
-  res.send('hello world')
+  res.render('index')
 })
 
 // 設定 port 3000
