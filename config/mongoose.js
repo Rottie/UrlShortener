@@ -2,7 +2,13 @@
 
 //Step 2 require 
 const mongoose = require('mongoose') // 載入 mongoose
-mongoose.connect('mongodb://localhost/Url_Shortener') // 設定連線到 mongoDB
+
+// config/mongoose.js
+// 如果在 Heroku 環境則使用 process.env.MONGODB_URI
+// 否則為本地環境，使用 mongodb://localhost/todo-list
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/Url_Shortener'
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+
 
 //Step 3 gain connection status
 //3A. 取得資料庫連線狀態
