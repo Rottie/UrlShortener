@@ -1,1 +1,26 @@
-<h1>Testing</h1>
+<form method="POST" action="/">
+  <div class="form-group form-row">
+    <label for="length" class="col-md-4 col-form-label">
+      Your Url
+    </label>
+    <div class="col-md-8">
+      {{!-- name="length" --}}
+      <input type="text" name="url" class="form-control" id="url" min="4" max="16" {{!-- Step 5IV.fill in value by using
+        option --}} value="{{originalurl.url}}">
+      <small class="text-muted form-text">Length is available for any length you want</small>
+    </div>
+  </div>
+
+  {{!-- Step 4IVB.show result on UI --}}
+
+  {{#if final}}
+  <div class="alert alert-info" role="alert">
+    <span class="mr-2">Your password is:</span>
+
+    <a href="{{originalurl.url}}"><code>{{final}}</code></a>
+  </div>
+  {{/if}}
+
+
+  <button class="btn btn-success" type="submit">Generate Short Url</button>
+</form>
