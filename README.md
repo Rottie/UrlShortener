@@ -1,7 +1,7 @@
 
 1.Introduction
 
-Click button then check terminal records info of routes
+Shorten Any url into short Url
 
 2.Environment Setting
 
