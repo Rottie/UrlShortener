@@ -53,9 +53,15 @@ router.get('/:result',(req,res)=>{
 
   UrlShort.findOne({shortUrl: shortUrl } )
   .lean()
-  .then((urls)=>res.redirect(urls.originalUrl))
-
+  .then((urls)=> {
+    //If input url repeated in database
+    if(urls)
+     res.redirect(urls.originalUrl)
+  })
   .catch(error => res.redirect('/'))
+
+
+
 })
 
 

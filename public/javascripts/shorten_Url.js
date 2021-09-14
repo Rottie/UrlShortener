@@ -1,5 +1,7 @@
+  const baseUrl = process.env.baseUrl || 'http://localhost:3000/'
+  // add Url model
+  const UrlShort = require('../../models/UrlShort')
 
-const baseUrl = process.env.baseUrl || 'http://localhost:3000/'
 
 async function shortenUrl() {
  
@@ -10,7 +12,6 @@ async function shortenUrl() {
   
  //Define shortUrl length
   const shortUrlLength = 5
-  
 
 
   //join three array into one array
@@ -36,8 +37,7 @@ for (let i = 0; i < shortUrlLength; i++) {
   //Defines string array for validate short url purpose
   let uniqueUrl=''
   
-  // add Url model
-  const UrlShort = require('../../models/UrlShort')
+
 
   //the shortUrl that create temporarily will be seacrch in databse
   await UrlShort.findOne({shortUrl: finalUrl } )
