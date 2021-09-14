@@ -9,7 +9,11 @@ router.get('/', (req, res) => {
    UrlShort.find()
   .lean()
   .then(urlshort =>res.render('index',{urlshort}))
+
    .catch(error=>console.log(error))
 })
+
+
+
 // Export module
 module.exports = router

@@ -1,3 +1,6 @@
+
+const baseUrl = process.env.baseUrl || 'http://localhost:3000/'
+
 async function shortenUrl() {
  
   //Define character type exist in shorten url
@@ -7,8 +10,8 @@ async function shortenUrl() {
   
  //Define shortUrl length
   const shortUrlLength = 5
-  //Define format shortUrl that constant
-  const baseUrl="https://fathomless-shelf-85245.herokuapp.com/"
+  
+
 
   //join three array into one array
   const allDigits = lowerCaseLetters + upperCaseLetters + numbers

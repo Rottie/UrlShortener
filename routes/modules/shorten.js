@@ -5,6 +5,9 @@ const UrlShort = require('../../models/UrlShort')
 //Include this js file to output shorten url that done validation of uniqueness in databases
 const shortenUrl= require('../../public/javascripts/shorten_Url');
 
+const baseUrl = process.env.baseUrl || 'http://localhost:3000/'
+
+
 
 // POST routes
 router.post('/', async(req, res) => {
@@ -40,4 +43,21 @@ router.post('/', async(req, res) => {
 .catch(error => res.redirect('/'))
 
 })
+
+
+
+router.get('/:result',(req,res)=>{
+  const id =req.params.result
+
+  const shortUrl= baseUrl+id
+
+  UrlShort.findOne({shortUrl: shortUrl } )
+  .lean()
+  .then((urls)=>res.redirect(urls.originalUrl))
+
+  .catch(error => res.redirect('/'))
+})
+
+
+
 module.exports = router
