@@ -1,6 +1,3 @@
-  const baseUrl = process.env.baseUrl || 'http://localhost:3000/'
-  // add Url model
-  const UrlShort = require('../../models/UrlShort')
 
 
 async function shortenUrl() {
@@ -13,6 +10,9 @@ async function shortenUrl() {
  //Define shortUrl length
   const shortUrlLength = 5
 
+  const baseUrl = process.env.baseUrl || 'http://localhost:3000/'
+  // add Url model
+  const UrlShort = require('../../models/UrlShort')
 
   //join three array into one array
   const allDigits = lowerCaseLetters + upperCaseLetters + numbers

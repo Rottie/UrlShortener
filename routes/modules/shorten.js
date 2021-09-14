@@ -48,16 +48,11 @@ router.post('/', async(req, res) => {
 
 router.get('/:result',(req,res)=>{
   const id =req.params.result
-
   const shortUrl= baseUrl+id
-
+  
   UrlShort.findOne({shortUrl: shortUrl } )
   .lean()
-  .then((urls)=> {
-    //If input url repeated in database
-    if(urls)
-     res.redirect(urls.originalUrl)
-  })
+  .then((urls)=> res.redirect(urls.originalUrl))
   .catch(error => res.redirect('/'))
 
 
