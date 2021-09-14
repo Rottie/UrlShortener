@@ -1,26 +1,37 @@
-<form method="POST" action="/">
-  <div class="form-group form-row">
-    <label for="length" class="col-md-4 col-form-label">
-      Your Url
-    </label>
-    <div class="col-md-8">
-      {{!-- name="length" --}}
-      <input type="text" name="url" class="form-control" id="url" min="4" max="16" {{!-- Step 5IV.fill in value by using
-        option --}} value="{{originalurl.url}}">
-      <small class="text-muted form-text">Length is available for any length you want</small>
+<div class="container text-center" id="urlShortener">
+  {{!-- 1.Name project also a href back to blank index.hbs --}}
+  <a href="/">
+    <h2> URL Shortener</h2>
+  </a>
+  {{!-- 2.Project image --}}
+  <img src="/images/logoUrl.png" alt="" class="urlLogo">
+
+
+  {{!-- If user press a href back to index then trigger this fucntion
+  --}}
+  {{#unless shortUrl}}
+  {{!-- when no value shortUrl been detect then execute code below --}}
+  <form method="POST" action="/">
+    <div class="form-group form-row">
+      {{!-- 3.Display Input for user enter original Url --}}
+      <input type="url" name="originalUrl" class="form-control inputUrl" id="inputUrl" min="4" max="16"
+        value="{{originalUrl}}" placeholder="Input URL here" required>
+
+      {{!-- 4.Submit BUtton --}}
+      <button class="btn btn-success" type="submit">Shorten</button>
     </div>
-  </div>
+  </form>
+  {{/unless }}
 
-  {{!-- Step 4IVB.show result on UI --}}
 
-  {{#if final}}
-  <div class="alert alert-info" role="alert">
-    <span class="mr-2">Your password is:</span>
 
-    <a href="{{originalurl.url}}"><code>{{final}}</code></a>
-  </div>
+  {{!-- if shortUrl exist (can new created original or repeated original url ) --}}
+  {{#if shortUrl}}
+  {{!-- message after success shorten url --}}
+  <h3>Success!Please use this link</h3>
+
+  {{!-- return newly created shortUrl
+  or existed shortUrl if same original Url input --}}
+  <a href="{{originalUrl}}">{{shortUrl}}</a>
   {{/if}}
-
-
-  <button class="btn btn-success" type="submit">Generate Short Url</button>
-</form>
+</div>

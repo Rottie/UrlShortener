@@ -1,0 +1,40 @@
+body {
+  /* ensure that div component locate at center page */
+  margin: 150px auto;
+}
+
+#urlShortener {
+  /* adjust whole div max width */
+  max-width: 650px;
+  padding: 10px;
+  border: 1px solid lightgrey;
+}
+
+
+.btn {
+  /* button width size */
+  width: 200px;
+  /*button font   */
+  font-weight: 600;
+  /*make all margin button 10 px */
+  margin: 15px auto;
+}
+
+.urlLogo {
+  /* adjust width photo project */
+  width: 300px;
+  /* adjust margin of photo project */
+  margin: 10px auto;
+}
+
+.inputUrl {
+  /* ensure input take all width on layout */
+  width: 100%;
+  /* adjust margin input */
+  margin: 20px auto;
+}
+
+/* Adjust margin of h3 text */
+h3 {
+  margin: 20px auto;
+}
