@@ -23,8 +23,8 @@ Shorten Any url into short Url
 3.Installation
 
 3A.Git Clone Project 
-git clone   https://github.com/Rottie/UrlShortener.git
 
+git clone   https://github.com/Rottie/UrlShortener.git
 
 3B.Enter project Directory
 
