@@ -22,7 +22,8 @@ Shorten Any url into short Url
 
 3.Installation
 
-3A.Git Clone Project git clone 
+3A.Git Clone Project 
+git clone   https://github.com/Rottie/UrlShortener.git
 
 
 3B.Enter project Directory
@@ -31,7 +32,7 @@ cd UrlShortener
 
 3C.Instal node modules 
 
-npm install express express-handlebars nodemon 
+npm install express express-handlebars nodemon mongoose
 
 3D.Start project 
 
