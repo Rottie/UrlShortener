@@ -43,12 +43,18 @@ router.post('/', async(req, res) => {
 
 })
 
-
+//whenever user press a href or copy to browser
 router.get('/:id',(req,res)=>{
+  //obtain 5random produced character from produced shorten url
   const id = req.params.id
+
+  //combine baseurl and 5 random to form shortUrl
   const shortUrl = baseUrl +  id
-   UrlShort.findOne({shortUrl })
+   
+  //search current shortUrl in database
+  UrlShort.findOne({shortUrl })
   .lean()
+  //if found,redirect to its origianUrl value
   .then( (urls) => res.redirect(urls.originalUrl))
  .catch((error) => res.redirect('/'))
 })
