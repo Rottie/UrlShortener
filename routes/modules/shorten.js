@@ -6,7 +6,7 @@ const UrlShort = require('../../models/UrlShort')
 const shortenUrl= require('../../public/javascripts/shorten_Url');
 
 
-const baseUrl = process.env.baseUrl || 'http://localhost:3000/'
+const baseUrl = 'https://fathomless-shelf-85245.herokuapp.com/'
 
 // POST routes
 router.post('/', async(req, res) => {
