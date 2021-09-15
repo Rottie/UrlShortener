@@ -5,8 +5,8 @@ const UrlShort = require('../../models/UrlShort')
 //Include this js file to output shorten url that done validation of uniqueness in databases
 const shortenUrl= require('../../public/javascripts/shorten_Url');
 
- const baseUrl = 'https://fathomless-shelf-85245.herokuapp.com/'
 
+const baseUrl = process.env.baseUrl || 'http://localhost:3000/'
 
 // POST routes
 router.post('/', async(req, res) => {
@@ -50,8 +50,11 @@ router.get('/:id',(req,res)=>{
    UrlShort.findOne({shortUrl })
   .lean()
   .then( (urls) => res.redirect(urls.originalUrl))
-  .catch(error => console.log(error))
+ .catch((error) => res.redirect('/'))
 })
+
+
+
 
 
 module.exports = router
