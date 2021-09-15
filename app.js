@@ -1,3 +1,4 @@
+
 //Build node js server
 const express = require('express')
 const app = express()
@@ -11,7 +12,9 @@ const PORT = process.env.PORT || 3000
 require('./config/mongoose')
 
 // require routes modules
-const routes = require('./routes')
+const routes = require('./routes/index')
+
+
 
 //hbs tools set up
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))

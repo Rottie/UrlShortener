@@ -5,7 +5,7 @@ const UrlShort = require('../../models/UrlShort')
 //Include this js file to output shorten url that done validation of uniqueness in databases
 const shortenUrl= require('../../public/javascripts/shorten_Url');
 
-
+ const baseUrl = 'https://fathomless-shelf-85245.herokuapp.com/'
 
 
 // POST routes
@@ -17,7 +17,7 @@ router.post('/', async(req, res) => {
   let shortUrl =''
 
   //compare input url with orginalUrl in database
-  UrlShort.findOne({originalUrl: originalUrl } )
+  UrlShort.findOne({originalUrl } )
   .lean()
   .then(async(urls)=> {
     //If input url repeated in database
@@ -26,7 +26,7 @@ router.post('/', async(req, res) => {
       //Assign shortUrl value from  repeated originalUrl in database to this variable
       shortUrl = urls.shortUrl
       //Return repeated input original url and its  shortUrl to  index page
-       return res.render('index', { shortUrl,originalUrl })
+       return res.render('index', { shortUrl ,originalUrl})
     }
 
 
@@ -37,26 +37,21 @@ router.post('/', async(req, res) => {
   UrlShort.create({originalUrl,shortUrl})
 
   //Then return both value to index page
-   .then(()=>res.render('index',{ shortUrl,originalUrl }))
+   .then(()=>res.render('index',{ shortUrl,originalUrl}))
   })
 .catch(error => console.log(error))
 
 })
 
 
-
 router.get('/:id',(req,res)=>{
- 
-
-   UrlShort.findOne({shortUrl: req.params.id })
+  const id = req.params.id
+  const shortUrl = baseUrl +  id
+   UrlShort.findOne({shortUrl })
   .lean()
-  .then((urls)=> res.redirect(urls.originalUrl))
+  .then( (urls) => res.redirect(urls.originalUrl))
   .catch(error => console.log(error))
-
-
 })
-
-
 
 
 module.exports = router

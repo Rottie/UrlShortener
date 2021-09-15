@@ -6,11 +6,7 @@ const UrlShort = require('../../models/UrlShort')
 
 //index route
 router.get('/', (req, res) => {
-   UrlShort.find()
-  .lean()
-  .then(urlshort =>res.render('index',{urlshort}))
-
-   .catch(error=>console.log(error))
+    res.render('index')
 })
 
 
