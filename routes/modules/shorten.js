@@ -46,17 +46,17 @@ router.post('/', async(req, res) => {
 
 
 router.get('/:id',(req,res)=>{
-  const id =req.params.id
+ 
 
-
-   UrlShort.findOne({shortUrl: id } )
+   UrlShort.findOne({shortUrl: req.params.id } )
   .lean()
   .then((urls)=> res.redirect(urls.originalUrl))
-  .catch(error => res.redirect('/'))
+  .catch(error => console.log(error))
 
 
 
 })
+
 
 
 
