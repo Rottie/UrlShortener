@@ -1,18 +1,16 @@
 
 //Build node js server
 const express = require('express')
-const app = express()
-
 //Template engine set up
 const exphbs = require('express-handlebars');
-
-//Database connections either herokuapp or localhost
-const PORT = process.env.PORT || 3000
 //Gain mongoose setting
 require('./config/mongoose')
 
 // require routes modules
 const routes = require('./routes/index')
+//Database connections either herokuapp or localhost
+const PORT = process.env.PORT || 3000
+const app = express()
 
 
 
