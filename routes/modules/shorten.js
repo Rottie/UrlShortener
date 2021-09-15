@@ -39,7 +39,7 @@ router.post('/', async(req, res) => {
   //Then return both value to index page
    .then(()=>res.render('index',{ shortUrl,originalUrl }))
   })
-.catch(error => res.redirect('/'))
+.catch(error => console.log(error))
 
 })
 
@@ -48,11 +48,10 @@ router.post('/', async(req, res) => {
 router.get('/:id',(req,res)=>{
  
 
-   UrlShort.findOne({shortUrl: req.params.id } )
+   UrlShort.findOne({shortUrl: req.params.id })
   .lean()
   .then((urls)=> res.redirect(urls.originalUrl))
   .catch(error => console.log(error))
-
 
 
 })
